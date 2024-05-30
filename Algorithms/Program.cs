@@ -1,4 +1,4 @@
-﻿using Algoritmos;
+﻿using Algorithms;
 
 if (args.Length==0){
     Console.WriteLine("Can't to continue");
@@ -15,5 +15,5 @@ for(int i = 0; i < args.Length; i++){
 
 //Retire o comentário o qual algoritmo deseja executar 
 Console.WriteLine("\t\t" + string.Join("\t", numbersDisordered));
-//Console.WriteLine("Insertion sort " + string.Join("\t", InsertionSort.Handle(numbersDisordered)));
-Console.WriteLine("Selection sort " + string.Join("\t", SelectionSort.Handle(numbersDisordered)));
+//Console.WriteLine("Insertion Sort  " + string.Join("\t", InsertionSort.Handle(numbersDisordered)));
+Console.WriteLine("Selection Sort  " + string.Join("\t", SelectionSort.Handle(numbersDisordered)));
