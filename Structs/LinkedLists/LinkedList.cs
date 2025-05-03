@@ -9,9 +9,9 @@ public class LinkedList
         Head = null;
     }
 
-    public void AddNode(int value)
+    public void AddNode(int Valueue)
     {
-        var node = new Node(value);
+        var node = new Node(Valueue);
         if(Head == null){
             Head = node;
             return;
@@ -22,6 +22,24 @@ public class LinkedList
         }
         current.Next = node;
     }
+    public Node MergeTwoLists(Node list1, Node list2) {
+        Node newList = new Node();
+        Node point = newList;
+       
+        while(list1 != null && list2 != null){
+            if(list1.Value <= list2.Value){
+                newList.Next = list1;
+                list1 = list1.Next;
+            }else{
+                newList.Next = list2;
+                list2 = list2.Next;
+            }
+            newList = newList.Next;
+        }
+        newList.Next = list1 is {} ? list1 : list2;
+        return point.Next;
+    }
+ 
 
     public Node RemoveLastNode()
     {

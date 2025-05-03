@@ -90,4 +90,65 @@ public class LinkedListTests
         Assert.Null(removedNode);
         Assert.Null(linkedList.Head);
     }
+
+     [Fact]
+        public void MergeTwoLists_BothListsEmpty_ReturnsNull()
+        {
+            // Arrange
+            var linkedList = new LinkedList();
+            Node list1 = null;
+            Node list2 = null;
+
+            // Act
+            var result = linkedList.MergeTwoLists(list1, list2);
+
+            // Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void MergeTwoLists_OneListEmpty_ReturnsOtherList()
+        {
+            // Arrange
+            var linkedList = new LinkedList();
+            var list1 = new Node(1);
+            list1.Next = new Node(3);
+            list1.Next.Next = new Node(5);
+            Node list2 = null;
+
+            // Act
+            var result = linkedList.MergeTwoLists(list1, list2);
+
+            // Assert
+            Assert.Equal(1, result.Value);
+            Assert.Equal(3, result.Next.Value);
+            Assert.Equal(5, result.Next.Next.Value);
+            Assert.Null(result.Next.Next.Next);
+        }
+
+        [Fact]
+        public void MergeTwoLists_BothListsNonEmpty_ReturnsMergedSortedList()
+        {
+            // Arrange
+            var linkedList = new LinkedList();
+            var list1 = new Node(1);
+            list1.Next = new Node(3);
+            list1.Next.Next = new Node(5);
+
+            var list2 = new Node(2);
+            list2.Next = new Node(4);
+            list2.Next.Next = new Node(6);
+
+            // Act
+            var result = linkedList.MergeTwoLists(list1, list2);
+
+            // Assert
+            Assert.Equal(1, result.Value);
+            Assert.Equal(2, result.Next.Value);
+            Assert.Equal(3, result.Next.Next.Value);
+            Assert.Equal(4, result.Next.Next.Next.Value);
+            Assert.Equal(5, result.Next.Next.Next.Next.Value);
+            Assert.Equal(6, result.Next.Next.Next.Next.Next.Value);
+            Assert.Null(result.Next.Next.Next.Next.Next.Next);
+        }
 }
