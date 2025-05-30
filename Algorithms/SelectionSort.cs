@@ -1,8 +1,9 @@
 namespace Algorithms
 {
-    public static class SelectionSort
+    public class SelectionSort : ISort
     {
-        public static int[] Handle(int[] numbers)
+        const string _a = "S";
+        public void Handle(int[] numbers)
         {
             int copy, minor;
             for (int i = 0; i < numbers.Length; i++)
@@ -12,9 +13,15 @@ namespace Algorithms
                 numbers[minor] = numbers[i];
                 numbers[i] = copy;
             }
-            return numbers;
+            Console.WriteLine("SelectionSort completed:");
         }
-        static int SearchMinor(int[] numbers, int j)
+
+        public bool IsApplicable(string input)
+        {
+            return _a.Equals(input, StringComparison.OrdinalIgnoreCase);
+        }
+
+        private int SearchMinor(int[] numbers, int j)
         {
             int minor = numbers[j];
             int index = j;
